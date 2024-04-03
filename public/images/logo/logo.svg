@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="27" viewBox="0 0 138 27" width="140">
+  <!-- Logo "<" -->
+  <text x="0" y="21" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#4a6cf7" font-weight="bold">&lt;</text>
+  <!-- Texto "BVSoftware" -->
+  <text x="20" y="21" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#ffffff">BVSoftware</text>
+  <!-- Logo ">" -->
+  <text x="127" y="21" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#4a6cf7" font-weight="bold">&gt;</text>
+</svg>
