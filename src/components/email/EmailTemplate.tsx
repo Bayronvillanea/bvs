@@ -1,4 +1,4 @@
-// components/EmailTemplate.tsx
+// EmailTemplate.tsx
 import React from 'react';
 
 interface EmailTemplateProps {

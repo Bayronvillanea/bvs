@@ -9,6 +9,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const Contact = () => {
+  console.log("RESEND_API_KEY:", process.env.RESEND_API_KEY);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
