@@ -6,13 +6,7 @@ import EmailTemplate from '../../components/email/EmailTemplate';
 import dotenv from 'dotenv';
 dotenv.config();
 
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
     res.status(405).json({ message: 'Method Not Allowed' });
     return;
@@ -20,10 +14,12 @@ export default async function handler(
 
   const { name, email, message } = req.body;
 
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   try {
     const { data, error } = await resend.emails.send({
       from: 'Your Company <noreply@yourcompany.com>',
-      to: [email], // Usar el correo electrónico proporcionado en el formulario
+      to: [email],
       subject: 'New Contact Form Submission',
       text: `
         Name: ${name}
@@ -44,4 +40,6 @@ export default async function handler(
     console.error('Error sending email:', error);
     res.status(500).json({ error: 'Failed to send email' });
   }
-}
+};
+
+export default handler;

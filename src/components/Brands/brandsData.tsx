@@ -34,7 +34,7 @@ const brandsData: Brand[] = [
     name: "Vite",
     href: "https://vitejs.dev/",
     image: "/images/brands/vite.svg",
-    imageLight: "/images/brands/Vite.svg",
+    imageLight: "/images/brands/vite.svg",
   },
   {
     id: 5,

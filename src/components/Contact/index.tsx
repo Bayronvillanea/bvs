@@ -5,11 +5,9 @@ import { Resend } from 'resend';
 import NewsLatterBox from './NewsLatterBox';
 
 // Llamar dotenv para cargar las variables de entorno
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 const Contact = () => {
-  console.log("RESEND_API_KEY:", process.env.RESEND_API_KEY);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,22 +21,22 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const resend = new Resend(process.env.RESEND_API_KEY);
-
     try {
-      await resend.emails.send({
-        from: 'bvsoftware.company@gmail.com',
-        to: ['bayronvillaneahidalgo.30@gmail.com'],
-        subject: 'New Contact Form Submission',
-        text: `
-          Name: ${formData.name}
-          Email: ${formData.email}
-          Message: ${formData.message}
-        `,
+      const response = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
 
-      alert('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
+      if (response.ok) {
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        const errorMessage = await response.text();
+        throw new Error(errorMessage);
+      }
     } catch (error) {
       console.error('Error sending message:', error);
       alert('Failed to send message. Please try again later.');

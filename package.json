@@ -10,6 +10,8 @@
     "clean-webpack": "rm -rf node_modules/.cache/webpack"
   },
   "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "@paypal/react-paypal-js": "^8.2.0",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "eslint": "^8.56.0",
