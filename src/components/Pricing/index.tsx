@@ -18,52 +18,14 @@ const Pricing = () => {
           width="665px"
         />
 
-        <div className="w-full">
-          <div className="mb-8 flex justify-center md:mb-12 lg:mb-16">
-            <span
-              onClick={() => setIsMonthly(true)}
-              className={`${
-                isMonthly
-                  ? "pointer-events-none text-primary"
-                  : "text-dark dark:text-white"
-              } mr-4 cursor-pointer text-base font-semibold`}
-            >
-              Monthly
-            </span>
-            <div
-              onClick={() => setIsMonthly(!isMonthly)}
-              className="flex cursor-pointer items-center"
-            >
-              <div className="relative">
-                <div className="h-5 w-14 rounded-full bg-[#1D2144] shadow-inner"></div>
-                <div
-                  className={`${
-                    isMonthly ? "" : "translate-x-full"
-                  } shadow-switch-1 absolute left-0 top-[-4px] flex h-7 w-7 items-center justify-center rounded-full bg-primary transition`}
-                >
-                  <span className="active h-4 w-4 rounded-full bg-white"></span>
-                </div>
-              </div>
-            </div>
-            <span
-              onClick={() => setIsMonthly(false)}
-              className={`${
-                isMonthly
-                  ? "text-dark dark:text-white"
-                  : "pointer-events-none text-primary"
-              } ml-4 cursor-pointer text-base font-semibold`}
-            >
-              Yearly
-            </span>
-          </div>
-        </div>
+        
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {/* Basic Plan */}
           <PricingBox
             packageName="Immediate Presence"
             price={isMonthly ? "400" : "400"}
-            duration={isMonthly ? "mo" : "yr"}
+            duration={isMonthly ? "" : ""}
             subtitle="Get a professional online presence immediately with a custom static website."
           >
             <OfferList text="Custom static web design" status="active" />
@@ -77,7 +39,7 @@ const Pricing = () => {
           <PricingBox
             packageName="Strategic Expansion"
             price={isMonthly ? "700" : "700"}
-            duration={isMonthly ? "mo" : "yr"}
+            duration={isMonthly ? "" : ""}
             subtitle="Expand your online presence with a dynamic and functional website designed to attract and retain your customers."
           >
             <OfferList text="Dynamic and functional web design" status="active" />
@@ -91,7 +53,7 @@ const Pricing = () => {
           <PricingBox
             packageName="Total Transformation"
             price={isMonthly ? "1000" : "1000"}
-            duration={isMonthly ? "mo" : "yr"}
+            duration={isMonthly ? "" : ""}
             subtitle="Experience a complete digital transformation with a highly interactive and customized website that drives your business growth."
           >
             <OfferList text="Highly interactive and customized web design" status="active" />

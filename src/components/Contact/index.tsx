@@ -1,11 +1,6 @@
-// Contact.js
+
 "use client"
 import React, { useState } from 'react';
-import { Resend } from 'resend';
-import NewsLatterBox from './NewsLatterBox';
-
-// Llamar dotenv para cargar las variables de entorno
-
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +17,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/sendEmail', {
+      const response = await fetch('/api/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,9 +72,6 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-          </div>
-          <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
-            <NewsLatterBox />
           </div>
         </div>
       </div>
